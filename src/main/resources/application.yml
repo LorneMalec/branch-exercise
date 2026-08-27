@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: com.branch.githubdata
+
+  cache:
+    type: caffeine
+    cache-names:
+      - github-users
+      - github-repositories
+
+    caffeine:
+      spec: maximumSize=1000,expireAfterWrite=10m
+
+github:
+  api:
+    base-url: https://api.github.com
+
+logging:
+  level:
+    root: INFO
+    com.branch.githubdata: DEBUG
+    org.springframework.cache: TRACE
+
